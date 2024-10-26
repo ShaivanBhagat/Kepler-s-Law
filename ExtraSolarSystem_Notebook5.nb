@@ -1,0 +1,841 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     31232,        833]
+NotebookOptionsPosition[     28405,        788]
+NotebookOutlinePosition[     28804,        804]
+CellTagsIndexPosition[     28761,        801]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+
+Notebook 5 - Extra Notebook - Extra Solar System\
+\>", "Subsubsection",
+ CellChangeTimes->{{3.893330998677271*^9, 
+  3.893331033463105*^9}},ExpressionUUID->"0abaedb4-4052-43ad-a8e6-\
+751e2fb457c5"],
+
+Cell[CellGroupData[{
+
+Cell["Our [made-up] Planetary System around a Star \[OpenCurlyQuote]Zvevda\
+\[CloseCurlyQuote]", "Subtitle",
+ CellChangeTimes->{{3.8919477229018297`*^9, 3.891947729825818*^9}, {
+  3.893230418689145*^9, 
+  3.8932304654394093`*^9}},ExpressionUUID->"9979df03-9ebc-43dd-a93f-\
+8cc0ab241753"],
+
+Cell["\<\
+Mass (M) and Gravitational force (G) of \[OpenCurlyQuote]Zvevda\
+\[CloseCurlyQuote] was used which differs slightly from the values of our Sun \
+
+Our planets here resemble values of the outer planets from the actual solar \
+system
+Planets are named after our team members and one after Professor Marijn \
+Jansen
+Planets in increasing order of distance from the Star - Shaivaxia, \
+Evangelius, Lukara, Paulion, Marijnova\
+\>", "Text",
+ CellChangeTimes->{{3.891947695032854*^9, 3.891947695036489*^9}, {
+  3.891947733763019*^9, 3.891947774798077*^9}, {3.893230454746211*^9, 
+  3.893230523729287*^9}, {3.893230556982051*^9, 3.893230581395165*^9}, {
+  3.8932306418842583`*^9, 3.893230719077551*^9}, {3.893331049029151*^9, 
+  3.893331152963915*^9}},ExpressionUUID->"0f93376c-6fd9-4fe3-898e-\
+6873e4976e92"],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{"differential", " ", "equation"}], " ", "*)"}]], "Input",
+ CellLabel->
+  "In[482]:=",ExpressionUUID->"46b6b264-92c9-4c57-ab57-45fff4f2b644"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"diffeqns", "=", 
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"x", "''"}], "[", "t", "]"}], "\[Equal]", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox[
+         RowBox[{"G", " ", "M"}], 
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"x", "[", "t", "]"}], "2"], "+", 
+          SuperscriptBox[
+           RowBox[{"y", "[", "t", "]"}], "2"]}]]}], 
+       FractionBox[
+        RowBox[{"x", "[", "t", "]"}], 
+        SqrtBox[
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"x", "[", "t", "]"}], "2"], "+", 
+          SuperscriptBox[
+           RowBox[{"y", "[", "t", "]"}], "2"]}]]]}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"y", "''"}], "[", "t", "]"}], "\[Equal]", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox[
+         RowBox[{"G", " ", "M"}], 
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"x", "[", "t", "]"}], "2"], "+", 
+          SuperscriptBox[
+           RowBox[{"y", "[", "t", "]"}], "2"]}]]}], 
+       FractionBox[
+        RowBox[{"y", "[", "t", "]"}], 
+        SqrtBox[
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"x", "[", "t", "]"}], "2"], "+", 
+          SuperscriptBox[
+           RowBox[{"y", "[", "t", "]"}], "2"]}]]]}]}]}], "}"}]}], 
+  ";"}]], "Input",
+ CellLabel->
+  "In[483]:=",ExpressionUUID->"2fd7d4ea-09cb-49e0-a989-fbf5fc70422b"],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{
+  "mass", " ", "M", " ", "and", " ", "gravitational", " ", "force", " ", "G", 
+   " ", "of", " ", "the", " ", "Zvevda"}], " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.892980063614129*^9, 3.892980066909093*^9}, {
+  3.893230528301166*^9, 3.893230531183454*^9}},
+ CellLabel->
+  "In[484]:=",ExpressionUUID->"adc70bbf-5b4c-4b8c-9838-afe83a060f6c"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"M", "=", 
+   RowBox[{"1909100", "\[Times]", 
+    SuperscriptBox["10", "24"]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"G", "=", 
+   RowBox[{"5.973", "\[Times]", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "11"}]], "\[Times]", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      FractionBox["1", "1000"], ")"}], "3"], 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"24", "\[Times]", "60", "\[Times]", "60"}], ")"}], "2"]}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.893230118151228*^9, 3.8932301183010807`*^9}, {
+  3.8932303671634073`*^9, 3.893230373271353*^9}, {3.893231177966345*^9, 
+  3.893231186793322*^9}},
+ CellLabel->
+  "In[485]:=",ExpressionUUID->"d12e3c30-cab8-46b8-99c0-22e0ecf72627"],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{
+  "perihelion", " ", "distance", " ", "and", " ", "maximum", " ", "orbital", 
+   " ", "velocity", " ", "of", " ", "our", " ", "planets"}], " ", 
+  "*)"}]], "Input",
+ CellChangeTimes->{{3.8929800787041616`*^9, 3.892980081909554*^9}, {
+  3.8932305353361177`*^9, 3.893230535511149*^9}},
+ CellLabel->
+  "In[487]:=",ExpressionUUID->"b18e55ee-992a-465b-8f1b-7de3b555e10d"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"ShaivaxiaDistance", ",", "ShaivaxiaMaxVelocity"}], "}"}], "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"740.52", "\[Times]", 
+      SuperscriptBox["10", "6"]}], ",", 
+     RowBox[{"13.72", "\[Times]", 
+      RowBox[{"(", 
+       RowBox[{"24", "\[Times]", "60", "\[Times]", "60"}], ")"}]}]}], "}"}]}],
+   ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"EvangeliusDistance", ",", "EvangeliusMaxVelocity"}], "}"}], "=", 
+   
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"1352.55", "\[Times]", 
+      SuperscriptBox["10", "6"]}], ",", 
+     RowBox[{"10.18", "\[Times]", 
+      RowBox[{"(", 
+       RowBox[{"24", "\[Times]", "60", "\[Times]", "60"}], ")"}]}]}], "}"}]}],
+   ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"LukaraDistance", ",", "LukaraMaxVelocity"}], "}"}], "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"2741.30", "\[Times]", 
+      SuperscriptBox["10", "6"]}], ",", 
+     RowBox[{"7.11", "\[Times]", 
+      RowBox[{"(", 
+       RowBox[{"24", "\[Times]", "60", "\[Times]", "60"}], ")"}]}]}], "}"}]}],
+   ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"PaulionDistance", ",", "PaulionMaxVelocity"}], "}"}], "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"4444.45", "\[Times]", 
+      SuperscriptBox["10", "6"]}], ",", 
+     RowBox[{"5.50", "\[Times]", 
+      RowBox[{"(", 
+       RowBox[{"24", "\[Times]", "60", "\[Times]", "60"}], ")"}]}]}], "}"}]}],
+   ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"MarijnovaDistance", ",", "MarijnovaMaxVelocity"}], "}"}], "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"4436.82", "\[Times]", 
+      SuperscriptBox["10", "6"]}], ",", 
+     RowBox[{"6.10", "\[Times]", 
+      RowBox[{"(", 
+       RowBox[{"24", "\[Times]", "60", "\[Times]", "60"}], ")"}]}]}], "}"}]}],
+   ";"}]}], "Input",
+ CellChangeTimes->{{3.892021879461388*^9, 3.892021881717832*^9}, {
+  3.89322926572752*^9, 3.893229276855837*^9}, {3.893229407965754*^9, 
+  3.8932294230020742`*^9}, {3.893229534281485*^9, 3.8932295423868437`*^9}, {
+  3.893229591421492*^9, 3.893229600021285*^9}, {3.893229664084647*^9, 
+  3.893229672756645*^9}, {3.8932306104603033`*^9, 3.893230624321167*^9}},
+ CellLabel->
+  "In[488]:=",ExpressionUUID->"965b89cc-d1cd-49f4-b652-2bfd2986b415"],
+
+Cell[CellGroupData[{
+
+Cell["Planets Orbit", "Subsection",
+ CellChangeTimes->{{3.891948155005324*^9, 3.891948159962514*^9}, 
+   3.893230539030757*^9},ExpressionUUID->"9670d21f-5c93-40f3-b697-\
+64f5801b4892"],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", "Shaivaxia", " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.892021915628128*^9, 3.8920219178826847`*^9}, {
+  3.893229279913724*^9, 3.893229281984015*^9}},
+ CellLabel->
+  "In[493]:=",ExpressionUUID->"3859e280-7648-4407-bee3-b64cee0034b0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"initconditionsShaivaxia", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"x", "[", "0", "]"}], "\[Equal]", "ShaivaxiaDistance"}], ",", 
+     RowBox[{
+      RowBox[{"y", "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"x", "'"}], "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"y", "'"}], "[", "0", "]"}], "\[Equal]", 
+      "ShaivaxiaMaxVelocity"}]}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.893229295041897*^9, 3.893229310166707*^9}},
+ CellLabel->
+  "In[494]:=",ExpressionUUID->"f5dc5298-136e-4dc3-944e-feb619df7a07"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"eqnsShaivaxia", "=", 
+   RowBox[{"Join", "[", 
+    RowBox[{"diffeqns", ",", "initconditionsShaivaxia"}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.893229312364807*^9, 3.893229322615851*^9}},
+ CellLabel->
+  "In[495]:=",ExpressionUUID->"90f6d801-08c9-40c9-8d56-97f96b438aa1"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"tmax", "=", "1000000"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"solutionShaivaxia", "=", 
+   RowBox[{"NDSolve", "[", 
+    RowBox[{"eqnsShaivaxia", ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "y"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"MaxSteps", "\[Rule]", "10000000"}]}], "]"}]}], ";"}]}], "Input",\
+
+ CellChangeTimes->{{3.892022236970291*^9, 3.892022249637402*^9}, {
+  3.892022945806361*^9, 3.8920229460171623`*^9}, {3.893229326014244*^9, 
+  3.8932293334728413`*^9}},
+ CellLabel->
+  "In[496]:=",ExpressionUUID->"5addabb9-d448-45ea-8d36-f30e30f21b4e"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"PorbitShaivaxia", "=", 
+   RowBox[{"ParametricPlot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Evaluate", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"x", "[", "t", "]"}], ",", 
+         RowBox[{"y", "[", "t", "]"}]}], "}"}], "]"}], "/.", 
+      "solutionShaivaxia"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"PlotPoints", "\[Rule]", "1000"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "Automatic"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.8932293363123302`*^9, 3.893229345041626*^9}},
+ CellLabel->
+  "In[498]:=",ExpressionUUID->"eb7d9477-1238-4b9b-833b-7eef30000ea6"],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", "Evangelius", " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.891947843118116*^9, 3.891947845189826*^9}, {
+  3.893229394849018*^9, 3.893229397219046*^9}},
+ CellLabel->
+  "In[499]:=",ExpressionUUID->"4a1b2033-8d93-4495-ae05-0f84e426e92c"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"initconditionsEvangelius", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"x", "[", "0", "]"}], "\[Equal]", "EvangeliusDistance"}], ",", 
+     RowBox[{
+      RowBox[{"y", "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"x", "'"}], "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"y", "'"}], "[", "0", "]"}], "\[Equal]", 
+      "EvangeliusMaxVelocity"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"eqnsEvangelius", "=", 
+   RowBox[{"Join", "[", 
+    RowBox[{"diffeqns", ",", "initconditionsEvangelius"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tmax", "=", "1000000"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"solutionEvangelius", "=", 
+   RowBox[{"NDSolve", "[", 
+    RowBox[{"eqnsEvangelius", ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "y"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"MaxSteps", "\[Rule]", "100000000"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PorbitEvangelius", "=", 
+   RowBox[{"ParametricPlot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Evaluate", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"x", "[", "t", "]"}], ",", 
+         RowBox[{"y", "[", "t", "]"}]}], "}"}], "]"}], "/.", 
+      "solutionEvangelius"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"PlotPoints", "\[Rule]", "1000"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "Automatic"}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.8920220283093452`*^9, 3.892022028646343*^9}, {
+  3.892022346113016*^9, 3.892022347968295*^9}, {3.893229398955617*^9, 
+  3.89322940336311*^9}, {3.89322943438972*^9, 3.893229518893827*^9}},
+ CellLabel->
+  "In[500]:=",ExpressionUUID->"8b179bd6-a0fa-4c83-b462-d91f86679896"],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", "Lukara", " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.891947852677758*^9, 3.891947854898899*^9}, {
+  3.893229545879589*^9, 3.893229546944919*^9}},
+ CellLabel->
+  "In[505]:=",ExpressionUUID->"8c36d43e-7cdd-4ef7-b535-28fc1a5ba5f0"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"initconditionsLukara", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"x", "[", "0", "]"}], "\[Equal]", "LukaraDistance"}], ",", 
+     RowBox[{
+      RowBox[{"y", "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"x", "'"}], "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"y", "'"}], "[", "0", "]"}], "\[Equal]", 
+      "LukaraMaxVelocity"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"eqnsLukara", "=", 
+   RowBox[{"Join", "[", 
+    RowBox[{"diffeqns", ",", "initconditionsLukara"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tmax", "=", "1000000"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"solutionLukara", "=", 
+   RowBox[{"NDSolve", "[", 
+    RowBox[{"eqnsLukara", ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "y"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"MaxSteps", "\[Rule]", "100000000"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PorbitLukara", "=", 
+   RowBox[{"ParametricPlot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Evaluate", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"x", "[", "t", "]"}], ",", 
+         RowBox[{"y", "[", "t", "]"}]}], "}"}], "]"}], "/.", 
+      "solutionLukara"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"PlotPoints", "\[Rule]", "1000"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "Automatic"}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.892022033434073*^9, 3.892022036112224*^9}, {
+  3.892022342182294*^9, 3.892022344292644*^9}, {3.8932295483707457`*^9, 
+  3.8932295836078377`*^9}},
+ CellLabel->
+  "In[506]:=",ExpressionUUID->"e75da599-3860-41ca-9b0e-b4bb198b232f"],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", "Paulion", " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.89194786403644*^9, 3.891947868482562*^9}, {
+  3.893229604378751*^9, 3.893229605724156*^9}},
+ CellLabel->
+  "In[511]:=",ExpressionUUID->"97b5ff9a-1805-4ba9-806b-4f84afa5b007"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"initconditionsPaulion", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"x", "[", "0", "]"}], "\[Equal]", "PaulionDistance"}], ",", 
+     RowBox[{
+      RowBox[{"y", "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"x", "'"}], "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"y", "'"}], "[", "0", "]"}], "\[Equal]", 
+      "PaulionMaxVelocity"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"eqnsPaulion", "=", 
+   RowBox[{"Join", "[", 
+    RowBox[{"diffeqns", ",", "initconditionsPaulion"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tmax", "=", "1000000"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"solutionPaulion", "=", 
+   RowBox[{"NDSolve", "[", 
+    RowBox[{"eqnsPaulion", ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "y"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"MaxSteps", "\[Rule]", "100000000"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PorbitPaulion", "=", 
+   RowBox[{"ParametricPlot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Evaluate", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"x", "[", "t", "]"}], ",", 
+         RowBox[{"y", "[", "t", "]"}]}], "}"}], "]"}], "/.", 
+      "solutionPaulion"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"PlotPoints", "\[Rule]", "1000"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "Automatic"}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{
+  3.8919478838367662`*^9, {3.892022038548773*^9, 3.892022046134346*^9}, {
+   3.8920223368903723`*^9, 3.892022339326846*^9}, {3.8932296118492327`*^9, 
+   3.893229654904574*^9}},
+ CellLabel->
+  "In[512]:=",ExpressionUUID->"9d07e900-7421-421a-9768-a1ac4f981fac"],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", "Marijnova", " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.8919478955936003`*^9, 3.891947897352751*^9}, {
+  3.893229659339926*^9, 3.893229661380624*^9}},
+ CellLabel->
+  "In[517]:=",ExpressionUUID->"2065e535-602b-4dff-b758-2d6625275edc"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"initconditionsMarijnova", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"x", "[", "0", "]"}], "\[Equal]", "MarijnovaDistance"}], ",", 
+     RowBox[{
+      RowBox[{"y", "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"x", "'"}], "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"y", "'"}], "[", "0", "]"}], "\[Equal]", 
+      "MarijnovaMaxVelocity"}]}], "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"eqnsMarijnova", "=", 
+   RowBox[{"Join", "[", 
+    RowBox[{"diffeqns", ",", "initconditionsMarijnova"}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"tmax", "=", "1000000"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"solutionMarijnova", "=", 
+   RowBox[{"NDSolve", "[", 
+    RowBox[{"eqnsMarijnova", ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "y"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"MaxSteps", "\[Rule]", "100000000"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"PorbitMarijnova", "=", 
+   RowBox[{"ParametricPlot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Evaluate", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"x", "[", "t", "]"}], ",", 
+         RowBox[{"y", "[", "t", "]"}]}], "}"}], "]"}], "/.", 
+      "solutionMarijnova"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"PlotPoints", "\[Rule]", "1000"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "Automatic"}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.892022048989481*^9, 3.8920220491923523`*^9}, {
+  3.892022084950633*^9, 3.8920220871278257`*^9}, {3.892022331005913*^9, 
+  3.892022335012513*^9}, {3.893229725497755*^9, 3.893229803368277*^9}},
+ CellLabel->
+  "In[518]:=",ExpressionUUID->"0c4ca08a-69b2-406a-b32d-32dfe3c692ae"],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{
+   RowBox[{
+   "plotting", " ", "the", " ", "orbits", " ", "of", " ", "our", " ", 
+    "made"}], "-", 
+   RowBox[{
+   "up", " ", "planets", " ", "using", " ", "the", " ", "same", " ", 
+    "equation", " ", "and", " ", "code", " ", "as", " ", "done", " ", "in", 
+    " ", "previous", " ", "notebooks"}]}], " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.8933312067642393`*^9, 
+  3.8933312371477747`*^9}},ExpressionUUID->"9c68862f-4ab8-4f62-815e-\
+cd512336ce60"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"PorbitMarijnova", ",", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"{", 
+         RowBox[{"Cyan", ",", 
+          RowBox[{"Disk", "[", 
+           RowBox[{
+            RowBox[{"Flatten", "[", 
+             RowBox[{
+              RowBox[{"Evaluate", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"x", "[", "t", "]"}], ",", 
+                 RowBox[{"y", "[", "t", "]"}]}], "}"}], "]"}], "/.", 
+              "\[VeryThinSpace]", "solutionMarijnova"}], "]"}], ",", 
+            FractionBox["MarijnovaDistance", "20"]}], "]"}]}], "}"}], "]"}]}],
+       "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"PorbitLukara", ",", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"{", 
+         RowBox[{"Green", ",", 
+          RowBox[{"Disk", "[", 
+           RowBox[{
+            RowBox[{"Flatten", "[", 
+             RowBox[{
+              RowBox[{"Evaluate", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"x", "[", "t", "]"}], ",", 
+                 RowBox[{"y", "[", "t", "]"}]}], "}"}], "]"}], "/.", 
+              "\[VeryThinSpace]", "solutionLukara"}], "]"}], ",", 
+            FractionBox["LukaraDistance", "13"]}], "]"}]}], "}"}], "]"}]}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"PorbitPaulion", ",", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"{", 
+         RowBox[{"Blue", ",", 
+          RowBox[{"Disk", "[", 
+           RowBox[{
+            RowBox[{"Flatten", "[", 
+             RowBox[{
+              RowBox[{"Evaluate", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"x", "[", "t", "]"}], ",", 
+                 RowBox[{"y", "[", "t", "]"}]}], "}"}], "]"}], "/.", 
+              "\[VeryThinSpace]", "solutionPaulion"}], "]"}], ",", 
+            FractionBox["PaulionDistance", "22"]}], "]"}]}], "}"}], "]"}]}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"PorbitEvangelius", ",", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"{", 
+         RowBox[{"Orange", ",", 
+          RowBox[{"Disk", "[", 
+           RowBox[{
+            RowBox[{"Flatten", "[", 
+             RowBox[{
+              RowBox[{"Evaluate", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"x", "[", "t", "]"}], ",", 
+                 RowBox[{"y", "[", "t", "]"}]}], "}"}], "]"}], "/.", 
+              "\[VeryThinSpace]", "solutionEvangelius"}], "]"}], ",", 
+            FractionBox["EvangeliusDistance", "6"]}], "]"}]}], "}"}], "]"}]}],
+       "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"PorbitShaivaxia", ",", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Darker", "[", "Red", "]"}], ",", 
+          RowBox[{"Disk", "[", 
+           RowBox[{
+            RowBox[{"Flatten", "[", 
+             RowBox[{
+              RowBox[{"Evaluate", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"x", "[", "t", "]"}], ",", 
+                 RowBox[{"y", "[", "t", "]"}]}], "}"}], "]"}], "/.", 
+              "solutionShaivaxia"}], "]"}], ",", 
+            FractionBox["ShaivaxiaDistance", "3"]}], "]"}]}], "}"}], "]"}], 
+       ",", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"{", 
+         RowBox[{"Yellow", ",", 
+          RowBox[{"PointSize", "[", "0.1", "]"}], ",", " ", 
+          RowBox[{"Point", "[", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0"}], "}"}], "]"}]}], "}"}], "]"}]}], "}"}]}], 
+    "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "0", ",", "100000"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.891947926724429*^9, 3.891947927376693*^9}, {
+  3.8919604241314173`*^9, 3.891960497320848*^9}, {3.892021974960167*^9, 
+  3.892021981438859*^9}, {3.892022090112712*^9, 3.89202209914296*^9}, {
+  3.892022303301745*^9, 3.892022328319621*^9}, {3.892022384689624*^9, 
+  3.892022387053092*^9}, {3.8920229244491177`*^9, 3.89202292528896*^9}, {
+  3.892023004870803*^9, 3.892023012170617*^9}, {3.8920239682701473`*^9, 
+  3.892024019292966*^9}, {3.893229934513719*^9, 3.893230040827629*^9}, {
+  3.893230158926401*^9, 3.8932302508733673`*^9}, {3.893230299960606*^9, 
+  3.893230346745205*^9}, {3.89323139601994*^9, 3.893231396386541*^9}, {
+  3.89323150661572*^9, 3.89323152895899*^9}},
+ CellLabel->
+  "In[523]:=",ExpressionUUID->"63baa1fe-2971-4cce-9b51-b1801133f3fc"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`t$$ = 0., Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`t$$], 0, 100000}}, Typeset`size$$ = {
+    360., {172., 177.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`t$$ = 0}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Show[{$CellContext`PorbitMarijnova, 
+         Graphics[{Cyan, 
+           Disk[
+            Flatten[
+             ReplaceAll[
+              Evaluate[{
+                $CellContext`x[$CellContext`t$$], 
+                $CellContext`y[$CellContext`t$$]}], \
+$CellContext`solutionMarijnova]], $CellContext`MarijnovaDistance/
+            20]}]}, {$CellContext`PorbitLukara, 
+         Graphics[{Green, 
+           Disk[
+            Flatten[
+             ReplaceAll[
+              Evaluate[{
+                $CellContext`x[$CellContext`t$$], 
+                $CellContext`y[$CellContext`t$$]}], \
+$CellContext`solutionLukara]], $CellContext`LukaraDistance/
+            13]}]}, {$CellContext`PorbitPaulion, 
+         Graphics[{Blue, 
+           Disk[
+            Flatten[
+             ReplaceAll[
+              Evaluate[{
+                $CellContext`x[$CellContext`t$$], 
+                $CellContext`y[$CellContext`t$$]}], \
+$CellContext`solutionPaulion]], $CellContext`PaulionDistance/
+            22]}]}, {$CellContext`PorbitEvangelius, 
+         Graphics[{Orange, 
+           Disk[
+            Flatten[
+             ReplaceAll[
+              Evaluate[{
+                $CellContext`x[$CellContext`t$$], 
+                $CellContext`y[$CellContext`t$$]}], \
+$CellContext`solutionEvangelius]], $CellContext`EvangeliusDistance/
+            6]}]}, {$CellContext`PorbitShaivaxia, 
+         Graphics[{
+           Darker[Red], 
+           Disk[
+            Flatten[
+             ReplaceAll[
+              Evaluate[{
+                $CellContext`x[$CellContext`t$$], 
+                $CellContext`y[$CellContext`t$$]}], \
+$CellContext`solutionShaivaxia]], $CellContext`ShaivaxiaDistance/3]}], 
+         Graphics[{Yellow, 
+           PointSize[0.1], 
+           Point[{0, 0}]}]}], 
+      "Specifications" :> {{$CellContext`t$$, 0, 100000}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{404., {217., 223.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.891960381597458*^9, 3.8919604325229053`*^9}, {
+   3.8919604681629047`*^9, 3.891960500779211*^9}, 3.8920200595622797`*^9, {
+   3.892020123732603*^9, 3.892020159378682*^9}, 3.892022011982826*^9, {
+   3.892022075842493*^9, 3.8920221021162577`*^9}, 3.892022244980878*^9, {
+   3.892022282083955*^9, 3.8920223191867447`*^9}, {3.8920223766301737`*^9, 
+   3.892022390552745*^9}, {3.892022914170335*^9, 3.892022927288961*^9}, 
+   3.892022977656074*^9, {3.892023009665329*^9, 3.892023013878722*^9}, {
+   3.892023949541399*^9, 3.8920240217289753`*^9}, 3.892025833690346*^9, 
+   3.892980120955447*^9, 3.893072967134066*^9, 3.8932300739165897`*^9, 
+   3.8932301491332283`*^9, {3.8932301986661263`*^9, 3.893230253082816*^9}, {
+   3.893230329676632*^9, 3.893230348104801*^9}, 3.893230378220591*^9, {
+   3.8932307257283173`*^9, 3.893230729471484*^9}, 3.893231130058495*^9, 
+   3.893231195673758*^9, 3.893231344884943*^9, 3.893231398530218*^9, 
+   3.893231483333386*^9, {3.893231519522028*^9, 3.893231530611017*^9}, 
+   3.89323430439362*^9, 3.893331187970936*^9},
+ CellLabel->
+  "Out[523]=",ExpressionUUID->"710e3e5c-700b-4439-8cf8-a278448deb27"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{316, Automatic}, {Automatic, 50}},
+FrontEndVersion->"13.2 for Mac OS X x86 (64-bit) (January 30, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"36c7d85d-8742-4547-95d3-73cbbaaec7fb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 208, 6, 71, "Subsubsection",ExpressionUUID->"0abaedb4-4052-43ad-a8e6-751e2fb457c5"],
+Cell[CellGroupData[{
+Cell[791, 30, 287, 5, 53, "Subtitle",ExpressionUUID->"9979df03-9ebc-43dd-a93f-8cc0ab241753"],
+Cell[1081, 37, 810, 16, 104, "Text",ExpressionUUID->"0f93376c-6fd9-4fe3-898e-6873e4976e92"],
+Cell[1894, 55, 185, 4, 30, "Input",ExpressionUUID->"46b6b264-92c9-4c57-ab57-45fff4f2b644"],
+Cell[2082, 61, 1471, 48, 142, "Input",ExpressionUUID->"2fd7d4ea-09cb-49e0-a989-fbf5fc70422b"],
+Cell[3556, 111, 388, 8, 30, "Input",ExpressionUUID->"adc70bbf-5b4c-4b8c-9838-afe83a060f6c"],
+Cell[3947, 121, 748, 21, 71, "Input",ExpressionUUID->"d12e3c30-cab8-46b8-99c0-22e0ecf72627"],
+Cell[4698, 144, 412, 9, 30, "Input",ExpressionUUID->"b18e55ee-992a-465b-8f1b-7de3b555e10d"],
+Cell[5113, 155, 2390, 68, 125, "Input",ExpressionUUID->"965b89cc-d1cd-49f4-b652-2bfd2986b415"],
+Cell[CellGroupData[{
+Cell[7528, 227, 184, 3, 54, "Subsection",ExpressionUUID->"9670d21f-5c93-40f3-b697-64f5801b4892"],
+Cell[7715, 232, 269, 5, 30, "Input",ExpressionUUID->"3859e280-7648-4407-bee3-b64cee0034b0"],
+Cell[7987, 239, 655, 18, 30, "Input",ExpressionUUID->"f5dc5298-136e-4dc3-944e-feb619df7a07"],
+Cell[8645, 259, 317, 8, 30, "Input",ExpressionUUID->"90f6d801-08c9-40c9-8d56-97f96b438aa1"],
+Cell[8965, 269, 672, 17, 52, "Input",ExpressionUUID->"5addabb9-d448-45ea-8d36-f30e30f21b4e"],
+Cell[9640, 288, 698, 19, 30, "Input",ExpressionUUID->"eb7d9477-1238-4b9b-833b-7eef30000ea6"],
+Cell[10341, 309, 268, 5, 30, "Input",ExpressionUUID->"4a1b2033-8d93-4495-ae05-0f84e426e92c"],
+Cell[10612, 316, 1949, 53, 115, "Input",ExpressionUUID->"8b179bd6-a0fa-4c83-b462-d91f86679896"],
+Cell[12564, 371, 264, 5, 30, "Input",ExpressionUUID->"8c36d43e-7cdd-4ef7-b535-28fc1a5ba5f0"],
+Cell[12831, 378, 1871, 53, 115, "Input",ExpressionUUID->"e75da599-3860-41ca-9b0e-b4bb198b232f"],
+Cell[14705, 433, 264, 5, 30, "Input",ExpressionUUID->"97b5ff9a-1805-4ba9-806b-4f84afa5b007"],
+Cell[14972, 440, 1909, 54, 115, "Input",ExpressionUUID->"9d07e900-7421-421a-9768-a1ac4f981fac"],
+Cell[16884, 496, 269, 5, 30, "Input",ExpressionUUID->"2065e535-602b-4dff-b758-2d6625275edc"],
+Cell[17156, 503, 1873, 52, 115, "Input",ExpressionUUID->"0c4ca08a-69b2-406a-b32d-32dfe3c692ae"],
+Cell[19032, 557, 503, 12, 30, "Input",ExpressionUUID->"9c68862f-4ab8-4f62-815e-cd512336ce60"],
+Cell[CellGroupData[{
+Cell[19560, 573, 4464, 112, 250, "Input",ExpressionUUID->"63baa1fe-2971-4cce-9b51-b1801133f3fc"],
+Cell[24027, 687, 4338, 96, 459, "Output",ExpressionUUID->"710e3e5c-700b-4439-8cf8-a278448deb27"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

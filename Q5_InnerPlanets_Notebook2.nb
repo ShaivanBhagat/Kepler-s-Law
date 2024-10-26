@@ -1,0 +1,714 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     25683,        706]
+NotebookOptionsPosition[     23290,        665]
+NotebookOutlinePosition[     23730,        682]
+CellTagsIndexPosition[     23687,        679]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Notebook 2 - Kepler\[CloseCurlyQuote]s Law Group 1
+Question 5 : Add the other planets to your animation . Give numerical \
+evidence that you do not need to incorporate the gravitational forces between \
+the other planets, only the gravitational force between the planets and the \
+Sun .\
+\>", "Subtitle",
+ CellChangeTimes->{{3.892979777922875*^9, 3.892979784978403*^9}, 
+   3.892979862321076*^9, {3.893330496253841*^9, 
+   3.893330508374696*^9}},ExpressionUUID->"4929692d-fb9f-4c62-8975-\
+df663a4c044b"],
+
+Cell[TextData[{
+ "Only the gravitational forces between the sun and planet needed to be given \
+. Since all the planets in this case orbit around the sun . Therefore there \
+is no need to get the gravitational force between individual planets .\nThe \
+ratio of gravitational force between the planets and the gravitational force \
+between the planets and sun is negligible, hence only the gravitational force \
+of the sun-planets is taken into consideration.\nRatio of the ",
+ Cell[BoxData[
+  FormBox[
+   FractionBox[
+    RowBox[{
+    "gravitational", " ", "force", " ", "of", " ", "the", " ", "planets"}], 
+    RowBox[{"gravitational", " ", "force", " ", 
+     RowBox[{"(", "Sun", ")"}]}]], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "c65d4126-f27f-4f0b-a545-41f6809b2304"],
+ "= 0.007403 which is negligible and can be neglected\n",
+ Cell[BoxData[
+  FormBox[
+   FractionBox[
+    RowBox[{"\[Sum]", 
+     FractionBox["Gm1m2", 
+      SuperscriptBox["d", "2"]]}], 
+    FractionBox["GMm", 
+     SuperscriptBox["d", "2"]]], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "b00ddc75-02b8-48db-8bee-f501c8d6ec1e"],
+ "=7.403\[Times]",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["10", 
+    RowBox[{"-", "15"}]], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "6f447739-056b-4fa3-b959-0f549d9f56fd"]
+}], "Text",
+ CellChangeTimes->{{3.8929798523209877`*^9, 3.892979888256977*^9}, {
+  3.893076490677806*^9, 3.8930765396644497`*^9}, {3.893076596124119*^9, 
+  3.893076662778985*^9}, {3.893180435941595*^9, 3.893180606308563*^9}, {
+  3.893180664568174*^9, 3.8931806919148617`*^9}, {3.893183993999811*^9, 
+  3.893184214420018*^9}},ExpressionUUID->"531dd6da-f5c7-4a73-bc6b-\
+dcfbc0df8f85"],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{"differential", " ", "equation"}], " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.892979893405053*^9, 3.892979909315707*^9}},
+ CellLabel->
+  "In[377]:=",ExpressionUUID->"e0514de7-7927-4498-bef8-d545564cc998"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"diffeqns", "=", 
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"x", "''"}], "[", "t", "]"}], "\[Equal]", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox[
+         RowBox[{"G", " ", "M"}], 
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"x", "[", "t", "]"}], "2"], "+", 
+          SuperscriptBox[
+           RowBox[{"y", "[", "t", "]"}], "2"]}]]}], 
+       FractionBox[
+        RowBox[{"x", "[", "t", "]"}], 
+        SqrtBox[
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"x", "[", "t", "]"}], "2"], "+", 
+          SuperscriptBox[
+           RowBox[{"y", "[", "t", "]"}], "2"]}]]]}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"y", "''"}], "[", "t", "]"}], "\[Equal]", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox[
+         RowBox[{"G", " ", "M"}], 
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"x", "[", "t", "]"}], "2"], "+", 
+          SuperscriptBox[
+           RowBox[{"y", "[", "t", "]"}], "2"]}]]}], 
+       FractionBox[
+        RowBox[{"y", "[", "t", "]"}], 
+        SqrtBox[
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"x", "[", "t", "]"}], "2"], "+", 
+          SuperscriptBox[
+           RowBox[{"y", "[", "t", "]"}], "2"]}]]]}]}]}], "}"}]}], 
+  ";"}]], "Input",
+ CellLabel->
+  "In[378]:=",ExpressionUUID->"eb43505a-fdd3-4b4b-b96b-e0f0e5ad319d"],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{
+  "mass", " ", "M", " ", "and", " ", "gravitational", " ", "force", " ", "G", 
+   " ", "of", " ", "the", " ", "Sun"}], " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.8929799284735413`*^9, 3.892979938286551*^9}},
+ CellLabel->
+  "In[379]:=",ExpressionUUID->"5e8aebb5-62ca-4021-8506-16435d645314"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"M", "=", 
+   RowBox[{"1989100", "\[Times]", 
+    SuperscriptBox["10", "24"]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"G", "=", 
+   RowBox[{"6.673", "\[Times]", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "11"}]], "\[Times]", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      FractionBox["1", "1000"], ")"}], "3"], 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"24", "\[Times]", "60", "\[Times]", "60"}], ")"}], "2"]}]}], 
+  ";"}]}], "Input",
+ CellLabel->
+  "In[380]:=",ExpressionUUID->"bc21b6b1-8f73-48c6-a57a-3831a0522f56"],
+
+Cell[CellGroupData[{
+
+Cell["Inner Planets Orbit", "Subsection",
+ CellChangeTimes->{{3.892021544046543*^9, 
+  3.89202155255468*^9}},ExpressionUUID->"745e7c5d-ed23-4a98-9dec-\
+1f8f32fb09fb"],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{
+  "perihelion", " ", "distance", " ", "and", " ", "maximum", " ", "orbital", 
+   " ", "velocity", " ", "of", " ", "the", " ", "inner", " ", "planets"}], 
+  " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.892979941775631*^9, 3.892979968784547*^9}},
+ CellLabel->
+  "In[382]:=",ExpressionUUID->"32b41d5b-7480-4bc5-8040-715d26af1e17"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"MercuryDistance", ",", "MercuryMaxVelocity"}], "}"}], "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"46.00", "\[Times]", 
+      SuperscriptBox["10", "6"]}], ",", 
+     RowBox[{"58.98", "\[Times]", 
+      RowBox[{"(", 
+       RowBox[{"24", "\[Times]", "60", "\[Times]", "60"}], ")"}]}]}], "}"}]}],
+   ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"VenusDistance", ",", "VenusMaxVelocity"}], "}"}], "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"107.48", "\[Times]", 
+      SuperscriptBox["10", "6"]}], ",", 
+     RowBox[{"35.26", "\[Times]", 
+      RowBox[{"(", 
+       RowBox[{"24", "\[Times]", "60", "\[Times]", "60"}], ")"}]}]}], "}"}]}],
+   ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"EarthDistance", ",", "EarthMaxVelocity"}], "}"}], "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"147.09", "\[Times]", 
+      SuperscriptBox["10", "6"]}], ",", 
+     RowBox[{"30.29", "\[Times]", 
+      RowBox[{"(", 
+       RowBox[{"24", "\[Times]", "60", "\[Times]", "60"}], ")"}]}]}], "}"}]}],
+   ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"MarsDistance", ",", "MarsMaxVelocity"}], "}"}], "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"206.62", "\[Times]", 
+      SuperscriptBox["10", "6"]}], ",", 
+     RowBox[{"26.50", "\[Times]", 
+      RowBox[{"(", 
+       RowBox[{"24", "\[Times]", "60", "\[Times]", "60"}], ")"}]}]}], "}"}]}],
+   ";"}]}], "Input",
+ CellLabel->
+  "In[383]:=",ExpressionUUID->"50a0b1ca-31bf-48b2-91ff-03cac9f7ec40"],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", "Mercury", " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.891947961518824*^9, 3.891947963695924*^9}},
+ CellLabel->
+  "In[387]:=",ExpressionUUID->"82192db8-bdaf-40f3-8be2-6174541280ba"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"initconditionsM", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"x", "[", "0", "]"}], "\[Equal]", "MercuryDistance"}], ",", 
+     RowBox[{
+      RowBox[{"y", "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"x", "'"}], "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"y", "'"}], "[", "0", "]"}], "\[Equal]", 
+      "MercuryMaxVelocity"}]}], "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"eqnsM", "=", 
+   RowBox[{"Join", "[", 
+    RowBox[{"diffeqns", ",", "initconditionsM"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"tmax", "=", "1400"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"solutionM", "=", 
+   RowBox[{"NDSolve", "[", 
+    RowBox[{"eqnsM", ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "y"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"MaxSteps", "\[Rule]", "10000"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"PorbitM", "=", 
+   RowBox[{"ParametricPlot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Evaluate", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"x", "[", "t", "]"}], ",", 
+         RowBox[{"y", "[", "t", "]"}]}], "}"}], "]"}], "/.", "solutionM"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"PlotPoints", "\[Rule]", "1000"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "Automatic"}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{3.892020970035264*^9},
+ CellLabel->
+  "In[388]:=",ExpressionUUID->"a212af7b-1437-4ffd-9835-74bbc9ccbaf0"],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", "Venus", " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.891947975066641*^9, 3.891947976700506*^9}},
+ CellLabel->
+  "In[393]:=",ExpressionUUID->"66456626-3321-4c83-b80b-09f675a9aca9"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"initconditionsV", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"x", "[", "0", "]"}], "\[Equal]", "VenusDistance"}], ",", 
+     RowBox[{
+      RowBox[{"y", "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"x", "'"}], "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"y", "'"}], "[", "0", "]"}], "\[Equal]", 
+      "VenusMaxVelocity"}]}], "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"eqnsV", "=", 
+   RowBox[{"Join", "[", 
+    RowBox[{"diffeqns", ",", "initconditionsV"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"tmax", "=", "1000"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"solutionV", "=", 
+   RowBox[{"NDSolve", "[", 
+    RowBox[{"eqnsV", ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "y"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"MaxSteps", "\[Rule]", "10000"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"PorbitV", "=", 
+   RowBox[{"ParametricPlot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Evaluate", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"x", "[", "t", "]"}], ",", 
+         RowBox[{"y", "[", "t", "]"}]}], "}"}], "]"}], "/.", "solutionV"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"PlotPoints", "\[Rule]", "1000"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "Automatic"}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.892020972163909*^9, 3.8920209764715*^9}},
+ CellLabel->
+  "In[394]:=",ExpressionUUID->"59535d85-efa3-4fa7-91c6-766176c6e3b9"],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", "Earth", " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.89194798496911*^9, 3.891947986770074*^9}},
+ CellLabel->
+  "In[399]:=",ExpressionUUID->"14324192-6651-4ccf-ba83-dc22f18c0570"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"initconditionsE", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"x", "[", "0", "]"}], "\[Equal]", "EarthDistance"}], ",", 
+     RowBox[{
+      RowBox[{"y", "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"x", "'"}], "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"y", "'"}], "[", "0", "]"}], "\[Equal]", 
+      "EarthMaxVelocity"}]}], "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"eqnsE", "=", 
+   RowBox[{"Join", "[", 
+    RowBox[{"diffeqns", ",", "initconditionsE"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"tmax", "=", "1400"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"solutionE", "=", 
+   RowBox[{"NDSolve", "[", 
+    RowBox[{"eqnsE", ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "y"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"MaxSteps", "\[Rule]", "10000"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"PorbitE", "=", 
+   RowBox[{"ParametricPlot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Evaluate", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"x", "[", "t", "]"}], ",", 
+         RowBox[{"y", "[", "t", "]"}]}], "}"}], "]"}], "/.", "solutionE"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"PlotPoints", "\[Rule]", "1000"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "Automatic"}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{3.892020978361805*^9},
+ CellLabel->
+  "In[400]:=",ExpressionUUID->"35a4043b-4ec7-4cb9-82a5-1aa96e63a3ab"],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", "Mars", " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.8919479947112494`*^9, 3.8919479962918797`*^9}},
+ CellLabel->
+  "In[405]:=",ExpressionUUID->"abe2dbb4-c891-4bde-af10-e5108dc6d8a2"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"initconditionsMars", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"x", "[", "0", "]"}], "\[Equal]", "MarsDistance"}], ",", 
+     RowBox[{
+      RowBox[{"y", "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"x", "'"}], "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"y", "'"}], "[", "0", "]"}], "\[Equal]", "MarsMaxVelocity"}]}],
+     "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"eqnsMars", "=", 
+   RowBox[{"Join", "[", 
+    RowBox[{"diffeqns", ",", "initconditionsMars"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tmax", "=", "1000"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"solutionMars", "=", 
+   RowBox[{"NDSolve", "[", 
+    RowBox[{"eqnsMars", ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "y"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"MaxSteps", "\[Rule]", "10000"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PorbitMars", "=", 
+   RowBox[{"ParametricPlot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Evaluate", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"x", "[", "t", "]"}], ",", 
+         RowBox[{"y", "[", "t", "]"}]}], "}"}], "]"}], "/.", "solutionMars"}],
+      ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"PlotPoints", "\[Rule]", "1000"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "Automatic"}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.892020244968338*^9, 3.892020246610364*^9}, {
+   3.892020320744895*^9, 3.892020326824705*^9}, {3.892020412764759*^9, 
+   3.8920204260071583`*^9}, 3.8920208723996067`*^9, {3.892020980138755*^9, 
+   3.892020981132031*^9}},
+ CellLabel->
+  "In[406]:=",ExpressionUUID->"054c065e-6498-41e8-8b0a-8cfdf93be850"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.891948024679715*^9, 3.891948087147667*^9}, {
+  3.8919481214524307`*^9, 3.891948137067832*^9}, {3.891948221118651*^9, 
+  3.8919482215968313`*^9}, {3.8919482516407013`*^9, 3.8919483114782877`*^9}, {
+  3.8920202970866632`*^9, 3.892020305903536*^9}, {3.8920203631449413`*^9, 
+  3.892020400228498*^9}, {3.8920204440862722`*^9, 3.8920204444976063`*^9}, {
+  3.892020537906611*^9, 3.8920205381452208`*^9}},
+ CellLabel->
+  "In[411]:=",ExpressionUUID->"9423303d-3abd-4c42-bd3a-58779ec0da53"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+    "plotting", " ", "the", " ", "orbits", " ", "and", " ", "in", " ", "the", 
+     " ", "orbits"}], ",", " ", 
+    RowBox[{"the", " ", "planets", " ", 
+     RowBox[{"(", 
+      RowBox[{"around", " ", "the", " ", "sun"}], ")"}]}]}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Orbits", " ", "were", " ", "previously", " ", "calculate", " ", "in", " ",
+     "the", " ", "first", " ", "notebook"}], " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.8929799758190203`*^9, 3.892980011076623*^9}, {
+  3.893330444525237*^9, 
+  3.893330471621767*^9}},ExpressionUUID->"01eeddbb-a67f-43dc-90ca-\
+e588e757a7be"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"PorbitMars", ",", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"{", 
+         RowBox[{"Red", ",", 
+          RowBox[{"Disk", "[", 
+           RowBox[{
+            RowBox[{"Flatten", "[", 
+             RowBox[{
+              RowBox[{"Evaluate", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"x", "[", "t", "]"}], ",", 
+                 RowBox[{"y", "[", "t", "]"}]}], "}"}], "]"}], "/.", 
+              "\[VeryThinSpace]", "solutionMars"}], "]"}], ",", 
+            FractionBox["MarsDistance", "25"]}], "]"}]}], "}"}], "]"}]}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"PorbitE", ",", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"{", 
+         RowBox[{"Blue", ",", 
+          RowBox[{"Disk", "[", 
+           RowBox[{
+            RowBox[{"Flatten", "[", 
+             RowBox[{
+              RowBox[{"Evaluate", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"x", "[", "t", "]"}], ",", 
+                 RowBox[{"y", "[", "t", "]"}]}], "}"}], "]"}], "/.", 
+              "\[VeryThinSpace]", "solutionE"}], "]"}], ",", 
+            FractionBox["EarthDistance", "12"]}], "]"}]}], "}"}], "]"}]}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"PorbitV", ",", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"{", 
+         RowBox[{"Orange", ",", 
+          RowBox[{"Disk", "[", 
+           RowBox[{
+            RowBox[{"Flatten", "[", 
+             RowBox[{
+              RowBox[{"Evaluate", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"x", "[", "t", "]"}], ",", 
+                 RowBox[{"y", "[", "t", "]"}]}], "}"}], "]"}], "/.", 
+              "\[VeryThinSpace]", "solutionV"}], "]"}], ",", 
+            FractionBox["VenusDistance", "11"]}], "]"}]}], "}"}], "]"}]}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"PorbitM", ",", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Darker", "[", "Red", "]"}], ",", 
+          RowBox[{"Disk", "[", 
+           RowBox[{
+            RowBox[{"Flatten", "[", 
+             RowBox[{
+              RowBox[{"Evaluate", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"x", "[", "t", "]"}], ",", 
+                 RowBox[{"y", "[", "t", "]"}]}], "}"}], "]"}], "/.", 
+              "\[VeryThinSpace]", "solutionM"}], "]"}], ",", 
+            FractionBox["MercuryDistance", "5"]}], "]"}]}], "}"}], "]"}], ",", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"{", 
+         RowBox[{"Yellow", ",", 
+          RowBox[{"PointSize", "[", "0.1", "]"}], ",", " ", 
+          RowBox[{"Point", "[", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0"}], "}"}], "]"}]}], "}"}], "]"}]}], "}"}]}], 
+    "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "0", ",", "800"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.892020561213278*^9, 3.892020626420926*^9}, {
+  3.892020879595536*^9, 3.892020890825425*^9}, {3.89202099783878*^9, 
+  3.892020999218964*^9}, {3.892021647446391*^9, 3.892021676385355*^9}, {
+  3.8920217815598383`*^9, 3.892021807643783*^9}, {3.893330404690632*^9, 
+  3.8933304219425507`*^9}},
+ CellLabel->
+  "In[414]:=",ExpressionUUID->"32669986-8ee8-4562-b91f-c6d143a291eb"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`t$$ = 0., Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`t$$], 0, 800}}, Typeset`size$$ = {360., {177., 181.}},
+     Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`t$$ = 0}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Show[{$CellContext`PorbitMars, 
+         Graphics[{Red, 
+           Disk[
+            Flatten[
+             ReplaceAll[
+              Evaluate[{
+                $CellContext`x[$CellContext`t$$], 
+                $CellContext`y[$CellContext`t$$]}], \
+$CellContext`solutionMars]], $CellContext`MarsDistance/
+            25]}]}, {$CellContext`PorbitE, 
+         Graphics[{Blue, 
+           Disk[
+            Flatten[
+             ReplaceAll[
+              Evaluate[{
+                $CellContext`x[$CellContext`t$$], 
+                $CellContext`y[$CellContext`t$$]}], $CellContext`solutionE]], \
+$CellContext`EarthDistance/12]}]}, {$CellContext`PorbitV, 
+         Graphics[{Orange, 
+           Disk[
+            Flatten[
+             ReplaceAll[
+              Evaluate[{
+                $CellContext`x[$CellContext`t$$], 
+                $CellContext`y[$CellContext`t$$]}], $CellContext`solutionV]], \
+$CellContext`VenusDistance/11]}]}, {$CellContext`PorbitM, 
+         Graphics[{
+           Darker[Red], 
+           Disk[
+            Flatten[
+             ReplaceAll[
+              Evaluate[{
+                $CellContext`x[$CellContext`t$$], 
+                $CellContext`y[$CellContext`t$$]}], $CellContext`solutionM]], \
+$CellContext`MercuryDistance/5]}], 
+         Graphics[{Yellow, 
+           PointSize[0.1], 
+           Point[{0, 0}]}]}], 
+      "Specifications" :> {{$CellContext`t$$, 0, 800}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{404., {222., 227.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.8920206204193287`*^9, 3.8920206277085876`*^9}, {
+   3.8920208523931227`*^9, 3.892020893268064*^9}, {3.8920209839317923`*^9, 
+   3.892021001728447*^9}, {3.892021776575131*^9, 3.892021810004663*^9}, 
+   3.892025780938593*^9, 3.8929797462343187`*^9, 3.893072925084333*^9, {
+   3.8933304186196213`*^9, 3.893330423369587*^9}},
+ CellLabel->
+  "Out[414]=",ExpressionUUID->"017a41c9-2731-4fb6-8e9a-ec3f9df17c0f"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{Automatic, 26}, {Automatic, 15}},
+TaggingRules-><|"TryRealOnly" -> False|>,
+FrontEndVersion->"13.2 for Mac OS X x86 (64-bit) (January 30, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"5a956ef0-df19-4580-b436-11873496f183"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 513, 10, 117, "Subtitle",ExpressionUUID->"4929692d-fb9f-4c62-8975-df663a4c044b"],
+Cell[1096, 34, 1739, 40, 168, "Text",ExpressionUUID->"531dd6da-f5c7-4a73-bc6b-dcfbc0df8f85"],
+Cell[2838, 76, 251, 5, 30, "Input",ExpressionUUID->"e0514de7-7927-4498-bef8-d545564cc998"],
+Cell[3092, 83, 1471, 48, 142, "Input",ExpressionUUID->"eb43505a-fdd3-4b4b-b96b-e0f0e5ad319d"],
+Cell[4566, 133, 338, 7, 30, "Input",ExpressionUUID->"5e8aebb5-62ca-4021-8506-16435d645314"],
+Cell[4907, 142, 580, 18, 71, "Input",ExpressionUUID->"bc21b6b1-8f73-48c6-a57a-3831a0522f56"],
+Cell[CellGroupData[{
+Cell[5512, 164, 166, 3, 54, "Subsection",ExpressionUUID->"745e7c5d-ed23-4a98-9dec-1f8f32fb09fb"],
+Cell[5681, 169, 373, 8, 30, "Input",ExpressionUUID->"32b41d5b-7480-4bc5-8040-715d26af1e17"],
+Cell[6057, 179, 1613, 50, 102, "Input",ExpressionUUID->"50a0b1ca-31bf-48b2-91ff-03cac9f7ec40"],
+Cell[7673, 231, 216, 4, 30, "Input",ExpressionUUID->"82192db8-bdaf-40f3-8be2-6174541280ba"],
+Cell[7892, 237, 1647, 49, 115, "Input",ExpressionUUID->"a212af7b-1437-4ffd-9835-74bbc9ccbaf0"],
+Cell[9542, 288, 214, 4, 30, "Input",ExpressionUUID->"66456626-3321-4c83-b80b-09f675a9aca9"],
+Cell[9759, 294, 1665, 49, 115, "Input",ExpressionUUID->"59535d85-efa3-4fa7-91c6-766176c6e3b9"],
+Cell[11427, 345, 213, 4, 30, "Input",ExpressionUUID->"14324192-6651-4ccf-ba83-dc22f18c0570"],
+Cell[11643, 351, 1643, 49, 115, "Input",ExpressionUUID->"35a4043b-4ec7-4cb9-82a5-1aa96e63a3ab"],
+Cell[13289, 402, 217, 4, 30, "Input",ExpressionUUID->"abe2dbb4-c891-4bde-af10-e5108dc6d8a2"],
+Cell[13509, 408, 1917, 54, 115, "Input",ExpressionUUID->"054c065e-6498-41e8-8b0a-8cfdf93be850"],
+Cell[15429, 464, 530, 8, 30, "Input",ExpressionUUID->"9423303d-3abd-4c42-bd3a-58779ec0da53"],
+Cell[15962, 474, 703, 18, 52, "Input",ExpressionUUID->"01eeddbb-a67f-43dc-90ca-e588e757a7be"],
+Cell[CellGroupData[{
+Cell[16690, 496, 3387, 89, 206, "Input",ExpressionUUID->"32669986-8ee8-4562-b91f-c6d143a291eb"],
+Cell[20080, 587, 3170, 73, 468, "Output",ExpressionUUID->"017a41c9-2731-4fb6-8e9a-ec3f9df17c0f"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

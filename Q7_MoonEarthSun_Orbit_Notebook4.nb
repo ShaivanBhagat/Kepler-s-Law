@@ -1,0 +1,889 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     33600,        881]
+NotebookOptionsPosition[     32512,        856]
+NotebookOutlinePosition[     32911,        872]
+CellTagsIndexPosition[     32868,        869]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Notebook 4
+Question 7 : Moon - Earth Orbit Around the Sun\
+\>", "Subtitle",
+ CellChangeTimes->{{3.8918572993670273`*^9, 3.891857314352762*^9}, {
+  3.8933307232289953`*^9, 
+  3.8933307266459637`*^9}},ExpressionUUID->"b88f9551-4fb6-4590-8467-\
+364b2cb64c32"],
+
+Cell["Question 7 is answered in this notebook", "Text",
+ CellChangeTimes->{{3.891873742960991*^9, 
+  3.891873765414165*^9}},ExpressionUUID->"1bfe08f2-4d62-486e-8795-\
+e3d44c864d46"],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{
+  "define", " ", "the", " ", "mass", " ", "of", " ", "the", " ", "sun", " ", 
+   "M", "\[IndentingNewLine]", "mass", " ", "of", " ", "the", " ", "moon", 
+   " ", "Mm", "\[IndentingNewLine]", "mass", " ", "of", " ", "the", " ", 
+   "earth", " ", "Me", "\[IndentingNewLine]", "Gravitational", " ", 
+   "constant", " ", "G", "\[IndentingNewLine]", "Two", " ", "differential", 
+   " ", "equations"}], " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.797407728958572*^9, 3.797407824202577*^9}, {
+   3.891931029179159*^9, 3.891931070190806*^9}, 3.8919314474070663`*^9},
+ CellLabel->
+  "In[461]:=",ExpressionUUID->"ce161f29-87ef-4983-9a28-5c4300252772"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"M", "=", 
+   RowBox[{"1989100", "\[Times]", 
+    SuperscriptBox["10", "24"]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"G", "=", 
+   RowBox[{"6.673", "\[Times]", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "11"}]], "\[Times]", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      FractionBox["1", "1000"], ")"}], "3"], 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"24", "\[Times]", "60", "\[Times]", "60"}], ")"}], "2"]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Mm", "=", 
+   RowBox[{"0.07346", "*", 
+    SuperscriptBox["10", "24"]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Me", "=", 
+    RowBox[{"5.9724", "*", 
+     SuperscriptBox["10", "24"]}]}], ";"}], "\n", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+    "here", " ", "the", " ", "2", "nd", " ", "order", " ", "differential", 
+     " ", "equation", " ", "is", " ", "changed", " ", "\[IndentingNewLine]", 
+     "on", " ", "the", " ", "cartesian", " ", "plane"}], ",", " ", 
+    RowBox[{"the", " ", "X"}], ",", " ", 
+    RowBox[{
+    "Y", " ", "coordinates", " ", "are", " ", "defined", " ", "as", " ", "a", 
+     " ", "function", " ", "of", " ", "time", " ", "with", " ", "respect", 
+     " ", "to", " ", "Sun", " ", "and", " ", "to", " ", "the", " ", "Moon", 
+     "\[IndentingNewLine]", "The", " ", "x"}], ",", 
+    RowBox[{
+    "y", " ", "coordinates", " ", "are", " ", "defined", " ", "as", " ", "a", 
+     " ", "function", " ", "of", " ", "time", " ", "with", " ", "respect", 
+     " ", "to", " ", "the", " ", "sun", " ", "and", " ", "to", " ", "the", 
+     " ", "earth", " ", "since", " ", "the", " ", "moon", " ", "revolves", 
+     " ", "around", " ", "the", " ", "earth", " ", "and", " ", "the", " ", 
+     "earth", " ", "around", " ", "the", " ", "sun"}]}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"diffeqns", "=", 
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"xE", "''"}], "[", "t", "]"}], "==", " ", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", 
+          FractionBox[
+           RowBox[{"G", " ", "M"}], 
+           RowBox[{
+            SuperscriptBox[
+             RowBox[{"xE", "[", "t", "]"}], "2"], "+", 
+            SuperscriptBox[
+             RowBox[{"yE", "[", "t", "]"}], "2"]}]]}], 
+         FractionBox[
+          RowBox[{"xE", "[", "t", "]"}], 
+          SqrtBox[
+           RowBox[{
+            SuperscriptBox[
+             RowBox[{"xE", "[", "t", "]"}], "2"], "+", 
+            SuperscriptBox[
+             RowBox[{"yE", "[", "t", "]"}], "2"]}]]]}], "-", 
+        RowBox[{
+         FractionBox[
+          RowBox[{"G", " ", "Mm"}], 
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"xE", "[", "t", "]"}], "-", 
+              RowBox[{"xM", "[", "t", "]"}]}], ")"}], "2"], "+", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"yE", "[", "t", "]"}], "-", 
+              RowBox[{"yM", "[", "t", "]"}]}], ")"}], "2"]}]], 
+         FractionBox[
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"xM", "[", "t", "]"}], "-", 
+            RowBox[{"xE", "[", "t", "]"}]}], ")"}], 
+          SqrtBox[
+           RowBox[{
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"xE", "[", "t", "]"}], "-", 
+               RowBox[{"xM", "[", "t", "]"}]}], ")"}], "2"], "+", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"yE", "[", "t", "]"}], "-", 
+               RowBox[{"yM", "[", "t", "]"}]}], ")"}], "2"]}]]]}]}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"yE", "''"}], "[", "t", "]"}], "==", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", 
+          FractionBox[
+           RowBox[{"G", " ", "M"}], 
+           RowBox[{
+            SuperscriptBox[
+             RowBox[{"xE", "[", "t", "]"}], "2"], "+", 
+            SuperscriptBox[
+             RowBox[{"yE", "[", "t", "]"}], "2"]}]]}], 
+         FractionBox[
+          RowBox[{"yE", "[", "t", "]"}], 
+          SqrtBox[
+           RowBox[{
+            SuperscriptBox[
+             RowBox[{"xE", "[", "t", "]"}], "2"], "+", 
+            SuperscriptBox[
+             RowBox[{"yE", "[", "t", "]"}], "2"]}]]]}], "-", 
+        RowBox[{
+         FractionBox[
+          RowBox[{"G", " ", "Mm"}], 
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"xE", "[", "t", "]"}], "-", 
+              RowBox[{"xM", "[", "t", "]"}]}], ")"}], "2"], "+", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"yE", "[", "t", "]"}], "-", 
+              RowBox[{"yM", "[", "t", "]"}]}], ")"}], "2"]}]], 
+         FractionBox[
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"yM", "[", "t", "]"}], "-", 
+            RowBox[{"yE", "[", "t", "]"}]}], ")"}], 
+          SqrtBox[
+           RowBox[{
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"xE", "[", "t", "]"}], "-", 
+               RowBox[{"xM", "[", "t", "]"}]}], ")"}], "2"], "+", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"yE", "[", "t", "]"}], "-", 
+               RowBox[{"yM", "[", "t", "]"}]}], ")"}], "2"]}]]]}]}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"xM", "''"}], "[", "t", "]"}], "==", " ", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", 
+          FractionBox[
+           RowBox[{"G", " ", "M"}], 
+           RowBox[{
+            SuperscriptBox[
+             RowBox[{"xM", "[", "t", "]"}], "2"], "+", 
+            SuperscriptBox[
+             RowBox[{"yM", "[", "t", "]"}], "2"]}]]}], 
+         FractionBox[
+          RowBox[{"xM", "[", "t", "]"}], 
+          SqrtBox[
+           RowBox[{
+            SuperscriptBox[
+             RowBox[{"xM", "[", "t", "]"}], "2"], "+", 
+            SuperscriptBox[
+             RowBox[{"yM", "[", "t", "]"}], "2"]}]]]}], "-", 
+        RowBox[{
+         FractionBox[
+          RowBox[{"G", " ", "Me"}], 
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"xM", "[", "t", "]"}], "-", 
+              RowBox[{"xE", "[", "t", "]"}]}], ")"}], "2"], "+", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"yM", "[", "t", "]"}], "-", 
+              RowBox[{"yE", "[", "t", "]"}]}], ")"}], "2"]}]], 
+         FractionBox[
+          RowBox[{"-", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"xE", "[", "t", "]"}], "-", 
+             RowBox[{"xM", "[", "t", "]"}]}], ")"}]}], 
+          SqrtBox[
+           RowBox[{
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"xM", "[", "t", "]"}], "-", 
+               RowBox[{"xE", "[", "t", "]"}]}], ")"}], "2"], "+", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"yM", "[", "t", "]"}], "-", 
+               RowBox[{"yE", "[", "t", "]"}]}], ")"}], "2"]}]]]}]}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"yM", "''"}], "[", "t", "]"}], "==", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", 
+          FractionBox[
+           RowBox[{"G", " ", "M"}], 
+           RowBox[{
+            SuperscriptBox[
+             RowBox[{"xM", "[", "t", "]"}], "2"], "+", 
+            SuperscriptBox[
+             RowBox[{"yM", "[", "t", "]"}], "2"]}]]}], 
+         FractionBox[
+          RowBox[{"yM", "[", "t", "]"}], 
+          SqrtBox[
+           RowBox[{
+            SuperscriptBox[
+             RowBox[{"xM", "[", "t", "]"}], "2"], "+", 
+            SuperscriptBox[
+             RowBox[{"yM", "[", "t", "]"}], "2"]}]]]}], "-", 
+        RowBox[{
+         FractionBox[
+          RowBox[{"G", " ", "Me"}], 
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"xM", "[", "t", "]"}], "-", 
+              RowBox[{"xE", "[", "t", "]"}]}], ")"}], "2"], "+", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"yM", "[", "t", "]"}], "-", 
+              RowBox[{"yE", "[", "t", "]"}]}], ")"}], "2"]}]], 
+         FractionBox[
+          RowBox[{"-", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"yE", "[", "t", "]"}], "-", 
+             RowBox[{"yM", "[", "t", "]"}]}], ")"}]}], 
+          SqrtBox[
+           RowBox[{
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"xM", "[", "t", "]"}], "-", 
+               RowBox[{"xE", "[", "t", "]"}]}], ")"}], "2"], "+", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"yM", "[", "t", "]"}], "-", 
+               RowBox[{"yE", "[", "t", "]"}]}], ")"}], "2"]}]]]}]}]}]}], 
+     "}"}]}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "earth", " ", "perihelion", " ", "distance", " ", "and", " ", "max", " ", 
+    "orbital", " ", "veloctity", " ", "from", " ", "the", " ", "sun"}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"EarthDistance", ",", "EarthMaxVelocity"}], "}"}], " ", "=", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"147.09", "\[Times]", 
+       SuperscriptBox["10", "6"]}], ",", 
+      RowBox[{"30.29", "\[Times]", 
+       RowBox[{"(", 
+        RowBox[{"24", "\[Times]", "60", "\[Times]", "60"}], ")"}]}]}], 
+     "}"}]}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "moon", " ", "perihelion", " ", "distance", " ", "and", " ", "max", " ", 
+    "orbital", " ", "velocity", " ", "around", " ", "the", " ", "earth"}], 
+   " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"MoonDistance", ",", "MoonMaxVelocity"}], "}"}], "=", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"0.3633", " ", 
+       SuperscriptBox["10", "6"]}], ",", 
+      RowBox[{"1.076", "  ", 
+       RowBox[{"(", 
+        RowBox[{"24", " ", "60", " ", "60"}], ")"}]}]}], "}"}]}], ";"}], "\n", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "this", " ", "defines", " ", "the", " ", "initial", " ", "conditions"}], 
+   "  ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"initconditionsE", "=", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"xE", "[", "0", "]"}], "\[Equal]", "EarthDistance"}], ",", 
+     RowBox[{
+      RowBox[{"yE", "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"xE", "'"}], "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"yE", "'"}], "[", "0", "]"}], "\[Equal]", 
+      "EarthMaxVelocity"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"initconditionsMoon", "=", "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"xM", "[", "0", "]"}], "\[Equal]", 
+       RowBox[{"EarthDistance", "+", "MoonDistance"}]}], ",", 
+      RowBox[{
+       RowBox[{"yM", "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"xM", "'"}], "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"yM", "'"}], "[", "0", "]"}], "\[Equal]", 
+       RowBox[{"EarthMaxVelocity", "+", "MoonMaxVelocity"}]}]}], "}"}]}], 
+   ";"}], "\n", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "the", " ", "differential", " ", "equations", " ", "and", " ", "initial", 
+    " ", "conditions"}], " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"alleqns", "=", 
+   RowBox[{"Join", "[", 
+    RowBox[{"diffeqns", ",", "initconditionsE", ",", "initconditionsMoon"}], 
+    "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"tmax", "=", "365.25"}], ";"}], "\n", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+    "the", " ", "following", " ", "equation", " ", "solves", " ", "the", " ", 
+     "differential", " ", "equation", " ", "for", " ", "xE", " ", 
+     RowBox[{"(", "xearth", ")"}]}], ",", " ", 
+    RowBox[{"yE", " ", 
+     RowBox[{"(", "yearth", ")"}]}], ",", " ", 
+    RowBox[{"xM", " ", 
+     RowBox[{"(", "xmoon", ")"}], " ", "and", " ", "yM", " ", 
+     RowBox[{"(", "ymoon", ")"}]}]}], " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"sol", "=", 
+    RowBox[{"NDSolve", "[", 
+     RowBox[{"alleqns", ",", 
+      RowBox[{"{", 
+       RowBox[{"xE", ",", "yE", ",", "xM", ",", "yM"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"t", ",", "0", ",", "tmax"}], "}"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "This", " ", "plots", " ", "the", " ", "orbit", " ", "of", " ", "the", " ",
+     "earth", " ", "and", " ", "the", " ", 
+    RowBox[{"moon", " ", ":"}]}], " ", "*)"}]}], "\n", 
+ RowBox[{Cell["Moon - Earth Orbit", "Subsection",
+   CellChangeTimes->{{3.891858011482193*^9, 3.891858019812965*^9}},
+   ExpressionUUID->"503b39ba-e3d6-496a-bc62-6886f711f0e1"], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+    "while", " ", "plotting", " ", "the", " ", "orbit", " ", "of", " ", "the",
+      " ", "moon", " ", "around", " ", "the", " ", "earth", " ", "and", " ", 
+     "then", " ", "of", " ", "the", " ", "earth", " ", "around", " ", "the", 
+     " ", "sun"}], ",", " ", 
+    RowBox[{
+    "the", " ", "orbit", " ", "of", " ", "the", " ", "moon", " ", "is", " ", 
+     "amplified", " ", "by", " ", "a", " ", "magnitude", " ", "of", " ", "50",
+      " ", "to", " ", "make", " ", "its", " ", "orbit", " ", "visible", " ", 
+     "around", " ", "the", " ", "Sun"}]}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PorbitE", "=", 
+   RowBox[{"ParametricPlot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Evaluate", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"xE", "[", "t", "]"}], ",", 
+         RowBox[{"yE", "[", "t", "]"}]}], "}"}], "]"}], "/.", "sol"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"PlotPoints", "\[Rule]", "1000"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "Automatic"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PorbitMoon", "=", 
+   RowBox[{"ParametricPlot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Evaluate", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"xE", "[", "t", "]"}], "+", 
+          RowBox[{"50", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"xM", "[", "t", "]"}], "-", 
+             RowBox[{"xE", "[", "t", "]"}]}], ")"}]}]}], ",", 
+         RowBox[{
+          RowBox[{"yE", "[", "t", "]"}], "+", 
+          RowBox[{"50", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"yM", "[", "t", "]"}], "-", 
+             RowBox[{"yE", "[", "t", "]"}]}], ")"}]}]}]}], "}"}], "]"}], "/.",
+       "sol"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"PlotPoints", "\[Rule]", "1000"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"Red", ",", "Dotted"}], "}"}]}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"PorbitMoon", ",", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"{", 
+         RowBox[{"Gray", ",", 
+          RowBox[{"Disk", "[", 
+           RowBox[{
+            RowBox[{"Flatten", "[", 
+             RowBox[{
+              RowBox[{"Evaluate", "[", 
+               RowBox[{"{", 
+                RowBox[{"Evaluate", "[", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"xE", "[", "t", "]"}], "+", 
+                    RowBox[{"50", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"xM", "[", "t", "]"}], "-", 
+                    RowBox[{"xE", "[", "t", "]"}]}], ")"}]}]}], ",", 
+                   RowBox[{
+                    RowBox[{"yE", "[", "t", "]"}], "+", 
+                    RowBox[{"50", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"yM", "[", "t", "]"}], "-", 
+                    RowBox[{"yE", "[", "t", "]"}]}], ")"}]}]}]}], "}"}], 
+                 "]"}], "}"}], "]"}], "/.", "sol"}], "]"}], ",", 
+            RowBox[{"EarthDistance", "/", "40"}]}], "]"}]}], "}"}], "]"}]}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"PorbitE", ",", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"{", 
+         RowBox[{"Blue", ",", 
+          RowBox[{"Disk", "[", 
+           RowBox[{
+            RowBox[{"Flatten", "[", 
+             RowBox[{
+              RowBox[{"Evaluate", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"xE", "[", "t", "]"}], ",", 
+                 RowBox[{"yE", "[", "t", "]"}]}], "}"}], "]"}], "/.", "sol"}],
+              "]"}], ",", 
+            FractionBox["EarthDistance", "20"]}], "]"}]}], "}"}], "]"}]}], 
+      "}"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "0", ",", "365.25"}], "}"}]}], 
+  "]"}], "\[IndentingNewLine]", Cell["Moon - Earth Orbit Around the Sun", 
+  "Subsection",
+  CellChangeTimes->{{3.891858024007998*^9, 3.8918580382872553`*^9}},
+  ExpressionUUID->
+  "e5e78605-971f-469c-921e-701619bf41b4"], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PorbitEi", "=", 
+   RowBox[{"ParametricPlot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Evaluate", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"xE", "[", "t", "]"}], ",", 
+         RowBox[{"yE", "[", "t", "]"}]}], "}"}], "]"}], "/.", "sol"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"PlotPoints", "\[Rule]", "1000"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "Automatic"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PorbitMooni", "=", 
+   RowBox[{"ParametricPlot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Evaluate", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"xE", "[", "t", "]"}], "+", 
+          RowBox[{"50", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"xM", "[", "t", "]"}], "-", 
+             RowBox[{"xE", "[", "t", "]"}]}], ")"}]}]}], ",", 
+         RowBox[{
+          RowBox[{"yE", "[", "t", "]"}], "+", 
+          RowBox[{"50", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"yM", "[", "t", "]"}], "-", 
+             RowBox[{"yE", "[", "t", "]"}]}], ")"}]}]}]}], "}"}], "]"}], "/.",
+       "sol"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"PlotPoints", "\[Rule]", "1000"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"Transparent", ",", "Dashed"}], "}"}]}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"PorbitMooni", ",", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Darker", "[", "Gray", "]"}], ",", 
+          RowBox[{"Disk", "[", 
+           RowBox[{
+            RowBox[{"Flatten", "[", 
+             RowBox[{
+              RowBox[{"Evaluate", "[", 
+               RowBox[{"{", 
+                RowBox[{"Evaluate", "[", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"xE", "[", "t", "]"}], "+", 
+                    RowBox[{"50", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"xM", "[", "t", "]"}], "-", 
+                    RowBox[{"xE", "[", "t", "]"}]}], ")"}]}]}], ",", 
+                   RowBox[{
+                    RowBox[{"yE", "[", "t", "]"}], "+", 
+                    RowBox[{"50", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"yM", "[", "t", "]"}], "-", 
+                    RowBox[{"yE", "[", "t", "]"}]}], ")"}]}]}]}], "}"}], 
+                 "]"}], "}"}], "]"}], "/.", "sol"}], "]"}], ",", 
+            RowBox[{"EarthDistance", "/", "40"}]}], "]"}]}], "}"}], "]"}]}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"PorbitEi", ",", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"{", 
+         RowBox[{"Blue", ",", 
+          RowBox[{"Disk", "[", 
+           RowBox[{
+            RowBox[{"Flatten", "[", 
+             RowBox[{
+              RowBox[{"Evaluate", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"xE", "[", "t", "]"}], ",", 
+                 RowBox[{"yE", "[", "t", "]"}]}], "}"}], "]"}], "/.", "sol"}],
+              "]"}], ",", 
+            FractionBox["EarthDistance", "20"]}], "]"}]}], "}"}], "]"}], ",", 
+       
+       RowBox[{"Graphics", "[", 
+        RowBox[{"{", 
+         RowBox[{"Yellow", ",", 
+          RowBox[{"PointSize", "[", "0.2", "]"}], ",", " ", 
+          RowBox[{"Point", "[", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0"}], "}"}], "]"}]}], "}"}], "]"}]}], "}"}]}], 
+    "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "0", ",", "365.25"}], "}"}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+    "the", " ", "following", " ", "graphs", " ", "show", " ", "the", " ", 
+     "orbit", " ", "of", " ", "the", " ", "moon", " ", "orbiting", " ", 
+     "around", " ", "the", " ", "earth"}], ",", " ", 
+    RowBox[{
+    "and", " ", "both", " ", "orbiting", " ", "around", " ", "the", " ", 
+     "sun"}]}], " ", "*)"}]}]}], "Input",
+ CellChangeTimes->{
+  3.6691005878290625`*^9, {3.669136769795232*^9, 3.6691367870510054`*^9}, {
+   3.66913719109783*^9, 3.6691371933786125`*^9}, {3.6691372357136106`*^9, 
+   3.6691372774198084`*^9}, {3.6691373675691996`*^9, 
+   3.6691373729548373`*^9}, {3.6691384551460133`*^9, 3.669138455925308*^9}, {
+   3.669138578633176*^9, 3.6691387452683697`*^9}, {3.6691389066545258`*^9, 
+   3.6691389646669855`*^9}, {3.6691395648476396`*^9, 
+   3.6691395741024976`*^9}, {3.669139703583182*^9, 3.669139707731015*^9}, {
+   3.669139750713984*^9, 3.6691397515594416`*^9}, {3.6691399280076294`*^9, 
+   3.6691399289162903`*^9}, {3.6691407212002935`*^9, 
+   3.6691407237533503`*^9}, {3.6693610645294704`*^9, 
+   3.6693610662142816`*^9}, {3.6693765636187196`*^9, 
+   3.6693765768015404`*^9}, {3.6693766180410013`*^9, 
+   3.6693766260806007`*^9}, {3.6693772816743555`*^9, 3.669377322376855*^9}, {
+   3.6694346951636367`*^9, 3.6694347098596773`*^9}, {3.752755479384388*^9, 
+   3.752755509863762*^9}, {3.7527556117831855`*^9, 3.7527556196918154`*^9}, {
+   3.752755870658145*^9, 3.7527559287599773`*^9}, {3.7527561000515084`*^9, 
+   3.7527561245161524`*^9}, {3.7527561628982115`*^9, 3.752756227017828*^9}, {
+   3.7527563203292217`*^9, 3.7527563246179814`*^9}, {3.75275711182568*^9, 
+   3.7527571204365716`*^9}, {3.752757159409565*^9, 3.7527571868884635`*^9}, {
+   3.752757223657529*^9, 3.7527572250114202`*^9}, {3.7527575433686523`*^9, 
+   3.7527575449799814`*^9}, {3.7527575958963346`*^9, 3.752757596695804*^9}, {
+   3.752757735399505*^9, 3.752757846022706*^9}, {3.797322060284436*^9, 
+   3.7973220614298153`*^9}, {3.797407857925928*^9, 3.797408034112815*^9}, {
+   3.79740809337568*^9, 3.797408179621776*^9}, {3.797408218469131*^9, 
+   3.797408265469582*^9}, {3.797408314324811*^9, 3.7974083337276077`*^9}, {
+   3.797917995447419*^9, 3.7979179975588827`*^9}, {3.891931102327552*^9, 
+   3.891931183189591*^9}, {3.891931459615512*^9, 3.8919314879972563`*^9}, {
+   3.891935079670724*^9, 3.89193508010789*^9}, {3.89193515566516*^9, 
+   3.891935156508337*^9}, {3.89193518990519*^9, 3.891935241046452*^9}, {
+   3.8933307403013*^9, 3.893330861981638*^9}, {3.893330893041814*^9, 
+   3.893330962315441*^9}},
+ CellLabel->
+  "In[462]:=",ExpressionUUID->"7fac7ce6-c1b1-4fd9-9e7d-389e21dfdd3f"],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Moon - Earth Orbit", "Subsection",
+   CellChangeTimes->{{3.891858011482193*^9, 3.891858019812965*^9}},
+   ExpressionUUID->"18dc5a31-bb61-4366-acf2-6fd099406c02"],
+  TextCell[
+  "Moon - Earth Orbit", "Subsection", 
+   CellChangeTimes -> {{3.891858011482193*^9, 
+    3.891858019812965*^9}}]]], "Output",
+ CellChangeTimes->{
+  3.891935117624711*^9, 3.891935163629938*^9, {3.891935199838018*^9, 
+   3.891935242301497*^9}, 3.892025917996079*^9, 3.892980156786255*^9, 
+   3.8930730010810757`*^9, 3.893330969025345*^9},
+ CellLabel->
+  "Out[474]=",ExpressionUUID->"26d56e4d-e02d-450c-aee5-39d7e7ef75ff"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`t$$ = 0, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`t$$], 0, 365.25}}, Typeset`size$$ = {
+    360., {178., 182.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`t$$ = 0}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Show[{$CellContext`PorbitMoon, 
+         Graphics[{Gray, 
+           Disk[
+            Flatten[
+             ReplaceAll[
+              Evaluate[{
+                
+                Evaluate[{$CellContext`xE[$CellContext`t$$] + 
+                  50 ($CellContext`xM[$CellContext`t$$] - \
+$CellContext`xE[$CellContext`t$$]), $CellContext`yE[$CellContext`t$$] + 
+                  50 ($CellContext`yM[$CellContext`t$$] - \
+$CellContext`yE[$CellContext`t$$])}]}], $CellContext`sol]], \
+$CellContext`EarthDistance/40]}]}, {$CellContext`PorbitE, 
+         Graphics[{Blue, 
+           Disk[
+            Flatten[
+             ReplaceAll[
+              Evaluate[{
+                $CellContext`xE[$CellContext`t$$], 
+                $CellContext`yE[$CellContext`t$$]}], $CellContext`sol]], \
+$CellContext`EarthDistance/20]}]}], 
+      "Specifications" :> {{$CellContext`t$$, 0, 365.25}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{404., {223., 228.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.891935117624711*^9, 3.891935163629938*^9, {3.891935199838018*^9, 
+   3.891935242301497*^9}, 3.892025917996079*^9, 3.892980156786255*^9, 
+   3.8930730010810757`*^9, 3.893330969688786*^9},
+ CellLabel->
+  "Out[477]=",ExpressionUUID->"b5fcad72-5266-4486-b76f-8bbaf2f862da"],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Moon - Earth Orbit Around the Sun", "Subsection",
+   CellChangeTimes->{{3.891858024007998*^9, 3.8918580382872553`*^9}},
+   ExpressionUUID->"b20f203b-67c6-442a-90d1-37ee7fa5959f"],
+  TextCell[
+  "Moon - Earth Orbit Around the Sun", "Subsection", 
+   CellChangeTimes -> {{3.891858024007998*^9, 
+    3.8918580382872553`*^9}}]]], "Output",
+ CellChangeTimes->{
+  3.891935117624711*^9, 3.891935163629938*^9, {3.891935199838018*^9, 
+   3.891935242301497*^9}, 3.892025917996079*^9, 3.892980156786255*^9, 
+   3.8930730010810757`*^9, 3.893330970124304*^9},
+ CellLabel->
+  "Out[478]=",ExpressionUUID->"711a9173-2420-4962-86a2-de08e4f96e22"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`t$$ = 0., Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`t$$], 0, 365.25}}, Typeset`size$$ = {
+    360., {178., 182.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`t$$ = 0}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Show[{$CellContext`PorbitMooni, 
+         Graphics[{
+           Darker[Gray], 
+           Disk[
+            Flatten[
+             ReplaceAll[
+              Evaluate[{
+                
+                Evaluate[{$CellContext`xE[$CellContext`t$$] + 
+                  50 ($CellContext`xM[$CellContext`t$$] - \
+$CellContext`xE[$CellContext`t$$]), $CellContext`yE[$CellContext`t$$] + 
+                  50 ($CellContext`yM[$CellContext`t$$] - \
+$CellContext`yE[$CellContext`t$$])}]}], $CellContext`sol]], \
+$CellContext`EarthDistance/40]}]}, {$CellContext`PorbitEi, 
+         Graphics[{Blue, 
+           Disk[
+            Flatten[
+             ReplaceAll[
+              Evaluate[{
+                $CellContext`xE[$CellContext`t$$], 
+                $CellContext`yE[$CellContext`t$$]}], $CellContext`sol]], \
+$CellContext`EarthDistance/20]}], 
+         Graphics[{Yellow, 
+           PointSize[0.2], 
+           Point[{0, 0}]}]}], 
+      "Specifications" :> {{$CellContext`t$$, 0, 365.25}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{404., {223., 228.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.891935117624711*^9, 3.891935163629938*^9, {3.891935199838018*^9, 
+   3.891935242301497*^9}, 3.892025917996079*^9, 3.892980156786255*^9, 
+   3.8930730010810757`*^9, 3.893330970827334*^9},
+ CellLabel->
+  "Out[481]=",ExpressionUUID->"b4e4d311-3664-447c-8709-f4609bc0133d"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{316, Automatic}, {Automatic, 50}},
+FrontEndVersion->"13.2 for Mac OS X x86 (64-bit) (January 30, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"3bdfeca5-d3b6-49e5-96c7-c47213061504"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 266, 7, 85, "Subtitle",ExpressionUUID->"b88f9551-4fb6-4590-8467-364b2cb64c32"],
+Cell[849, 31, 181, 3, 35, "Text",ExpressionUUID->"1bfe08f2-4d62-486e-8795-e3d44c864d46"],
+Cell[1033, 36, 688, 12, 115, "Input",ExpressionUUID->"ce161f29-87ef-4983-9a28-5c4300252772"],
+Cell[CellGroupData[{
+Cell[1746, 52, 24280, 650, 1206, "Input",ExpressionUUID->"7fac7ce6-c1b1-4fd9-9e7d-389e21dfdd3f"],
+Cell[26029, 704, 634, 13, 45, "Output",ExpressionUUID->"26d56e4d-e02d-450c-aee5-39d7e7ef75ff"],
+Cell[26666, 719, 2518, 56, 470, "Output",ExpressionUUID->"b5fcad72-5266-4486-b76f-8bbaf2f862da"],
+Cell[29187, 777, 668, 13, 45, "Output",ExpressionUUID->"711a9173-2420-4962-86a2-de08e4f96e22"],
+Cell[29858, 792, 2626, 60, 493, "Output",ExpressionUUID->"b4e4d311-3664-447c-8709-f4609bc0133d"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
